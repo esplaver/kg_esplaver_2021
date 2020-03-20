@@ -24,11 +24,23 @@ def check_strings_map(s1,s2):
 
 	#sort the frequencies of the first string in descending order
 	char_frequency1 = sorted(char_frequency1.items(), key = lambda x: x[1],reverse = True)
-
-
+	#check if the chars can match 1-1
+	for max_freq_tuple_1 in char_frequency1:
+		max_freq_c2 = max(char_frequency2, key=char_frequency2.get)
+		#we compare the highest frequencies of chars in both strings (and check the nth highest frequencies each nth iteration)
+		#this checks to see if a char in s1 maps to two different chars in s2 (making it not 1-1)
+		if max_freq_tuple_1[1] > char_frequency2[max_freq_c2]:
+			return "false"
+		else:
+			char_frequency2[max_freq_c2] -= max_freq_tuple_1[1] #For s2, cross out the chars that max_freq_tuple_1[0] map to
+	return "true"
 
 
 
 s1 = sys.argv[1]
 s2 = sys.argv[2]
 print(check_strings_map(s1,s2))
+
+
+
+
