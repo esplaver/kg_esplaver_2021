@@ -4,7 +4,6 @@ import sys
 def check_strings_map(s1,s2):
 	char_frequency1 = {}
 	char_frequency2 = {}
-	char_dict = {}
 	if len(s1)!=len(s2):
 		return "false"
 
@@ -40,7 +39,3 @@ def check_strings_map(s1,s2):
 s1 = sys.argv[1]
 s2 = sys.argv[2]
 print(check_strings_map(s1,s2))
-
-
-
-
